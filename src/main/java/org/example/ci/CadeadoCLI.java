@@ -50,13 +50,20 @@ public class CadeadoCLI {
 
         List<String> linhas = new ArrayList<>();
         String linha;
-        while (!(linha = scanner.nextLine()).equalsIgnoreCase("FIM")) {
-            linhas.add(linha);
+        while (true) {
+            linha = scanner.nextLine().trim(); // lê até pressionar Enter
+            if (linha.equalsIgnoreCase("FIM")) {
+                break; // encerra apenas se for exatamente "FIM"
+            }
+            if (!linha.isEmpty()) {
+                linhas.add(linha);
+            }
         }
 
         System.out.println("Processando todas as linhas...");
         return linhas;
     }
+
 
     /**
      * Processa a entrada linha por linha usando o handler fornecido até que a string de terminação "FIM" seja inserida.

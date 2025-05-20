@@ -29,7 +29,12 @@ public class ValidationUtil {
 
             // Validar parâmetro i para Regra 1
             if (validarParametroI && parametros.length > 3) {
-                Integer.parseInt(parametros[3]);
+                int i = Integer.parseInt(parametros[3]);
+                if (i < 0) {
+                    throw new IllegalArgumentException(
+                            "O parâmetro i deve ser um número inteiro não negativo, mas foi: " + i);
+                }
+
             }
 
             // Validar índices

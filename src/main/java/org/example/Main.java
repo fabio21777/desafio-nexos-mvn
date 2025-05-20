@@ -3,7 +3,7 @@ package org.example;
 import org.example.ci.CadeadoCLI;
 import org.example.processor.CadeadoProcessor;
 
-public class MainCadeadoMapecha {
+public class Main {
     public static void main(String[] args) {
         CadeadoCLI cli = new CadeadoCLI();
         CadeadoProcessor processor = new CadeadoProcessor();
