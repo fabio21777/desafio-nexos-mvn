@@ -4,7 +4,9 @@
 
 Os Mapechas são uma importante comunidade da bacia do rio Bilkendur. Eles utilizam cadeados codificados para transportar produtos entre as margens do rio, acompanhados de uma carta codificada com uma sequência de números. Sua tarefa é desenvolver um programa que processe essa sequência de números e gere a saída correta para abrir o cadeado.
 
-### Regras de Processamento
+---
+
+## Regras de Processamento
 
 - **Regra 1:**
   `0 t q i`
@@ -143,6 +145,20 @@ Processamento concluído com sucesso!
 
 ---
 
+## Solução em Nível de Design de Código
+
+O projeto utiliza o padrão Strategy para garantir clareza, responsabilidade única e aderência ao princípio Open/Closed.
+
+- **EntradaStrategy:**
+  Interface que define o método de entrada. Atualmente, há duas implementações: uma para o modo de entrada 1 (texto completo) e outra para o modo de entrada 2 (linha interativa). Para adicionar um novo modo de entrada, basta criar uma nova implementação dessa interface.
+
+- **RegraStrategy:**
+  Interface que define o método de processamento das regras. Existem duas implementações: uma para a regra 0 (soma do valor do índice para todos os índices no range solicitado) e outra para a regra 1 (soma dos valores do array e posterior zeragem dos valores).Se um novo tipo de regra for necessário, basta criar uma nova implementação dessa interface e implementar a lógica desejada, não sendo necessário alterar o código existente.
+
+Também foi utilizado o padrão factory para criar as instâncias corretas de acordo com o tipo de entrada e regra, tanto para a entrada quanto para o processamento das regras.
+
+---
+
 ## Observações Finais
 
 - O sistema só funciona com entradas válidas, seguindo rigorosamente o formato especificado.
@@ -152,5 +168,4 @@ Processamento concluído com sucesso!
 ---
 
 ![Exemplo de interface](image.png)
-
-![alt text](image-1.png)
+![Exemplo de interface 2](image-1.png)
